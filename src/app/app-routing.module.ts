@@ -5,7 +5,13 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
-  }
+  },
+  { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
+  { path: 'lesson', loadChildren: './lesson/lesson.module#LessonPageModule' },
+  { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
+  { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+  { path: 'lesson-detail', loadChildren: './lesson-detail/lesson-detail.module#LessonDetailPageModule' },
+  { path: 'games', loadChildren: './games/games.module#GamesPageModule' }
 ];
 @NgModule({
   imports: [

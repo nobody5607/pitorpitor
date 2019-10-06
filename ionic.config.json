@@ -1,5 +1,7 @@
 {
   "name": "patipan",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
