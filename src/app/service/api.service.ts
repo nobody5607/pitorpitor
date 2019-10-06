@@ -43,7 +43,7 @@ export class ApiService {
   }
   async getToken(){
    this.token = await this.storage.get('token');
-   console.log('constructor token = ', this.token); 
+   console.warn('constructor token = ', this.token); 
   }
   getLessons(search: string): Observable<any> { 
     console.log('token = ', this.token);
