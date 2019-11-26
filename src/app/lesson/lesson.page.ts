@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { ApiService } from './../service/api.service';
 import { Router } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-lesson',
@@ -14,7 +15,8 @@ export class LessonPage implements OnInit {
     public loadingController: LoadingController,
     public apiService:ApiService,
     public alertController: AlertController,
-    private router: Router
+    private router: Router,
+    private storage: Storage 
   ) { } 
 
   ngOnInit() {
@@ -22,18 +24,20 @@ export class LessonPage implements OnInit {
   }
   getLessons(term = ''){
     console.log('getLesson');
-    this.apiService.getLessons(term).subscribe(result=>{
-      console.warn(result);
-      if(result === null){
-        this.lessons = [];
-      }else{
-          if (result.success === true) {
-            this.lessons = result.data;
-          } else {
-            
-          }
-      }
-    })
+    this.storage.get('token').then(token=>{
+      this.apiService.getLessons(term, token).subscribe(result=>{
+        console.warn(result);
+        if(result === null){
+          this.lessons = [];
+        }else{
+            if (result.success === true) {
+              this.lessons = result.data;
+            } else {
+              
+            }
+        }
+      });
+    });
   }
   lessonDetail(data: any) { 
     this.router.navigate(['/lesson-detail', {id: data.id}]); 

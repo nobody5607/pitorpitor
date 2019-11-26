@@ -67,4 +67,8 @@ export class LoginPage implements OnInit {
     await alert.present();
   }
 
+  about(){
+    this.router.navigate(['about']);
+  }
+
 }

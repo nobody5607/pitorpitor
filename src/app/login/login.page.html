@@ -1,12 +1,27 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content padding>  
-    <form #form="ngForm" > 
-          <h3>Login</h3>
+<ion-content>  
+    <div style="background: white url(../../../../assets/image/ภาพล็อกอิน.jpg) center center;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;">
+    <ion-grid>
+      <ion-row>
+          <ion-col size="8"></ion-col>
+        <ion-col size="4" style="text-align: center;">
+          <label style="color: #502610;font-size: 18pt;" (click)="about()">
+            <ion-icon ios="ios-contact" md="md-contact" style="margin-top: 3px;"></ion-icon>ผู้พัฒนา
+          </label>
+        </ion-col>
+    </ion-row> 
+  </ion-grid>
+  
+    <form #form="ngForm" class="center"> 
+          <h2 style='    text-align: center;
+          padding-top: 45px;
+          font-weight: bold;
+          font-size: 28pt;
+          color: #502610;'>Login</h2>
               <ion-item style="margin-bottom:15px;" lines="none">
                 <ion-input class="txt-username" style="    border: 1px solid #a490c0;
                 padding: 15px;" name="username" type="text" placeholder="username" ngModel required></ion-input>
@@ -14,7 +29,11 @@
               <ion-item style="margin-bottom:15px;" lines="none">
                 <ion-input style="    border: 1px solid #a490c0;
                 padding: 15px;" name="password" type="password" placeholder="Password" ngModel required></ion-input>
-              </ion-item> 
-              <ion-button color="primary" (click)="Login(form)" expand="full">Login</ion-button>
+              </ion-item>
+              <div style="text-align: center;">
+                  <img style="width: 225px;" (click)="Login(form)" src="../../assets/image/ปุ่มเข้าสู่ระบบ.jpg">
+              </div> 
+         
   </form> 
+    </div>
 </ion-content>

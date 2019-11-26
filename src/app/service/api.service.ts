@@ -3,8 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { BehaviorSubject, throwError, Observable } from 'rxjs';
 import { map, catchError, retry } from 'rxjs/operators';
 import { Storage } from '@ionic/storage';  
-import { environment } from './environment.prod';
-
+import { environment } from './environment.prod';  
 
 @Injectable({
   providedIn: 'root'
@@ -37,24 +36,25 @@ export class ApiService {
       }),
       catchError(err => {
         // console.warn('error', err);
-        throw new Error("Server Error");
+        throw new Error("เกิดข้อผิดพลาดบน Server");
       })
     );
   }
   async getToken(){
    this.token = await this.storage.get('token');
    console.warn('constructor token = ', this.token); 
-  }
-  getLessons(search: string): Observable<any> { 
+  } 
+
+  getLessons(search: string, token:string): Observable<any> { 
     console.log('token = ', this.token);
-    return this.http.get(`${this.baseUrl}/lesson?term=${search}&token=${this.token}`).pipe(
+    return this.http.get(`${this.baseUrl}/lesson?term=${search}&token=${token}`).pipe(
       map(results => results),
       catchError(this.handleError)
     );
   }
-  getLessonByid(id): Observable<any> { 
+  getLessonByid(id, token): Observable<any> { 
     console.log('token = ', this.token);
-    return this.http.get(`${this.baseUrl}/lesson-by-id?id=${id}&token=${this.token}`).pipe(
+    return this.http.get(`${this.baseUrl}/lesson-by-id?id=${id}&token=${token}`).pipe(
       map(results => results),
       catchError(this.handleError)
     );

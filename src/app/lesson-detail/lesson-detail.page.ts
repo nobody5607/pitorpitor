@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoadingController, AlertController } from '@ionic/angular';
 import { ApiService } from './../service/api.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-lesson-detail',
@@ -15,7 +16,8 @@ export class LessonDetailPage implements OnInit {
     public loadingController: LoadingController,
     public apiService:ApiService,
     public alertController: AlertController,
-    private router: ActivatedRoute
+    private router: ActivatedRoute,
+    private storage: Storage
   ) { }
 
   ngOnInit() {
@@ -25,12 +27,14 @@ export class LessonDetailPage implements OnInit {
    });
   }
   getLessonById(id: number) {
-    this.apiService.getLessonByid(id).subscribe(result => {
-      if (result.success === true) {
-        this.lesson = result.data;
-        console.warn('lesson');
-        console.warn(this.lesson);
-      }  
+    this.storage.get('token').then(token=>{
+      this.apiService.getLessonByid(id, token).subscribe(result => {
+        if (result.success === true) {
+          this.lesson = result.data;
+          console.warn('lesson');
+          console.warn(this.lesson);
+        }  
+      });
     });
   }
 

@@ -12,7 +12,9 @@ import { AppComponent } from './app.component';
 import { ApiService } from './service/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'; 
+
+import { ComponentsModule } from './components/component.module.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule, 
     IonicModule.forRoot(),
-    // ComponentsModule,
+    ComponentsModule,
     ReactiveFormsModule, 
     AppRoutingModule,
     HttpClientModule,

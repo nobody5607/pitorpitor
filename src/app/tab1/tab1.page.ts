@@ -10,8 +10,7 @@ export class Tab1Page {
 
   constructor(
     private router: Router,
-  ) {
-    this.router.navigate(['login']);
-  }
+  ) {}
+  
 
 }

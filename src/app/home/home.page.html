@@ -4,8 +4,22 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-button color="primary" expand="full" (click)="getLessonAll()">บทเรียน</ion-button>
-    <ion-button color="primary" expand="full" (click)="getGameAll()">เกมส์ทั้งหมด</ion-button>
-    <ion-button color="danger" expand="full" (click)="logout()">ออกจากระบบ</ion-button>
+<ion-content>
+  <div style="background: white url(../../../../assets/image/ภาพhome.jpg) center center;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;">
+    <ion-item *ngIf='profile'>
+      <ion-avatar slot="start">
+        <img src="{{image}}">
+      </ion-avatar>
+      <ion-label>{{profile.name}} </ion-label>
+    </ion-item>
+    
+    <img src="../../assets/image/3.png" (click)="getLessonAll()">
+    <img src="../../assets/image/4.png" (click)="getGameAll()">
+    <img src="../../assets/image/1.png" (click)="logout()"> 
+  </div>
 </ion-content>

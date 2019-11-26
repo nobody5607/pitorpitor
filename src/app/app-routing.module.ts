@@ -11,7 +11,8 @@ const routes: Routes = [
   { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },
   { path: 'lesson-detail', loadChildren: './lesson-detail/lesson-detail.module#LessonDetailPageModule' },
-  { path: 'games', loadChildren: './games/games.module#GamesPageModule' }
+  { path: 'games', loadChildren: './games/games.module#GamesPageModule' },
+  { path: 'about', loadChildren: './about/about.module#AboutPageModule' }
 ];
 @NgModule({
   imports: [

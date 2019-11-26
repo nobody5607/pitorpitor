@@ -6,13 +6,13 @@ import { Storage } from '@ionic/storage';
 import { ApiService } from './../service/api.service';
 import { environment } from '../service/environment.prod';
 
-
 @Component({
-  selector: 'app-games',
-  templateUrl: './games.page.html',
-  styleUrls: ['./games.page.scss'],
+  selector: 'app-about',
+  templateUrl: './about.page.html',
+  styleUrls: ['./about.page.scss'],
 })
-export class GamesPage implements OnInit { 
+export class AboutPage implements OnInit {
+
   safeUrl: SafeResourceUrl;
   private urlValue: string;
   constructor(
@@ -24,17 +24,12 @@ export class GamesPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getGameAll();
+    this.getAbout();
   } 
-  getGameAll(){
-    this.storage.get('token').then(result => {
-      const token = result;
-      this.storage.get('USER_INFO').then(user=>{
-        let student = JSON.parse(user);
-        this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`${environment.BASE_URL}/game/game-all?user_id=${student['id']}`);
-      })
-      
-    });
+  getAbout(){
+    this.safeUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`${environment.BASE_URL}/game/about`);
   }
+
+
 
 }
