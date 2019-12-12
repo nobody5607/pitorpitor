@@ -28,12 +28,11 @@ export class HomePage implements OnInit {
   async getProfile() {
     let profile = await this.storage.get('USER_INFO');
     if (profile != null) {
-      this.profile = JSON.parse(profile);
-      let image = JSON.parse(this.profile.image);
+      this.profile = JSON.parse(profile); 
+      let image = JSON.parse(this.profile.image); 
+       
       this.image = `${image.base_url}/${image.path}`;
-      console.log(this.image);
     }
-
   }
   editProfile() {
     //<ion-icon name="create" (click)=>"editProfile()"></ion-icon>

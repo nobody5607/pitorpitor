@@ -25,13 +25,13 @@ export class LoginPage implements OnInit {
     const password = form.value.password;
     this.present();
     this.apiService.login(username, password).subscribe(result => {
-      this.dismiss();
-      if (result['success'] === false){
-        this.presentAlert('Warning', 'กรุณาตรวจสอบ Username หรือ Password');
-        return false;
-      } else { 
-        this.router.navigate(['home']);
-      }
+          this.dismiss();
+          if (result['success'] === false){
+            this.presentAlert('Warning', 'กรุณาตรวจสอบ Username หรือ Password');
+            return false;
+          } else { 
+            this.router.navigate(['home']);
+          }
     }, error => {
       this.presentAlert('Warning', error.toString());
     });

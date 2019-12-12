@@ -28,7 +28,9 @@ export class ApiService {
         console.log(results);
 
         if (results['success'] === true) {
-          console.warn('status login ', results['success']);  
+          console.warn('login data = ');
+          console.log(results['data']);
+          
           this.storage.set('USER_INFO', JSON.stringify(results['data']));
           this.storage.set('token', results['data']['token']);
         } 
